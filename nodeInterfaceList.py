@@ -2,6 +2,8 @@
 # Author:  Christopher Upkes
 # Owner: Stratatron, LLLC
 #
+import interface
+
 class NodeInterfaceList( object ) :
     def _init_( self, interfaceList=None) :
         self._interfaces = interfaceList

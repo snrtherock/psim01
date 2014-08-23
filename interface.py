@@ -4,9 +4,11 @@
 # Owner:  Stratatron, LLC
 #
 class Interface( object ) :
-    def _init_(self, name, address=None) :
+    def _init_(self, name, ifType, physName, address=None) :
         self._name = name
-        self_ip4_address = address
+        self._ip4_address = address
+        self._physName = physName
+        self._ifType
         
     @property
     def ip4_address(self) :
@@ -33,6 +35,31 @@ class Interface( object ) :
     def name(self) :
         del self._name
         
+
+    @property
+    def ifType(self) :
+        return self._ifType
+
+    @ifType.setter
+    def ifType(self, value) :
+        self._ifType = value
+
+    @ifType.deleter
+    def ifType(self) :
+        del self._ifType
+
+
+    @property
+    def physName(self) :
+        return self._physName
+
+    @physName.setter
+    def physName(self, value) :
+        self._physName = value
+
+    @physName.deleter
+    def physName(self) :
+        del self._physName
         
         
 
