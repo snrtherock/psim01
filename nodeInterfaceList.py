@@ -5,7 +5,7 @@
 import interface
 
 class NodeInterfaceList( object ) :
-    def _init_( self, interfaceList=None) :
+    def _init_( self, interfaceList) :
         self._interfaces = interfaceList
 
     @property
