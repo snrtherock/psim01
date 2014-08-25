@@ -1,0 +1,15 @@
+FTP Server 
+Command
+copy ftp:/ftp-source/sourcefileflash:/destfile
+Example
+Sch#copy ftp:/user:password@10.0.0.3/EOS-4.12.0.swi flash:/EOS-4.12.0.swi
+SCP 
+Command
+copy scp://scp-source/sourcefileflash:/destfile
+Example
+sch#copy scp://user:password@10.1.1.8/user/EOS-4.12.0.swi flash:/EOS-4.12.0.swi
+HTTP
+Command
+copy http://http-source/sourcefileflash:/destfile
+Example
+sch#copy http://10.0.0.10/EOS-4.12.0.swi flash:/EOS-4.12.0.swi

@@ -1,0 +1,7 @@
+#i/bin/bash -e
+#
+# Script for creating the storage.dat datafile.
+######################################################################
+echo | format -e | grep [0-300]. | sed -e 's/. c/:c/' -e 's/0 </0:</' -e 's/\/dev.*is\//:/' -e 's/\/scsi/:scsi/' -e 's/\/Slot/:Slot/' -e 's/\/disk$//' -e 's/\/disk@/:disk@/' -e 's/<SEAGATE.*>/<SEAGATEHD>/' -e 's/\/pci@/:pci@/' -e 's/\//:/' -e 's/<SmrtStor.*>/<SSD>/' -e 's/<STEC.*>/<ZEUSRAM>/' -e 's/LSI-SAS2X36.500304800104f53f/<SHELF6>:<FRONT>/' -e 's/LSI-SAS2X36.5003048000fd7a3f/<SHELF6>:<BACK>/' -e 's/LSI-SAS2X36.500304800104f63f/<SHELF5>:<FRONT>/' -e 's/LSI-SAS2X36.5003048000fd783f/<SHELF5>:<BACK>/' -e 's/LSI-SAS2X36.5003048000e8e13f/<SHELF4>:<FRONT>/' -e 's/LSI-SAS2X36.5003048000fd703f/<SHELF4>:<BACK>/' -e 's/LSI-SAS2X36.500304800104f73f/<SHELF3>:<FRONT>/' -e 's/LSI-SAS2X36.5003048000fd763f/<SHELF3>:<BACK>/' -e 's/LSI-SAS2X36.5003048000fd793f/<SHELF2>:<BACK>/' -e 's/LSI-SAS2X36.5003048000e7233f/<SHELF2>:<FRONT>/' -e 's/LSI-SAS2X36.5003048000fd8a3f/<SHELF1>:<BACK>/' -e 's/LSI-SAS2X36.5003048000fe183f/<SHELF1>:<FRONT>/' -e 's/LSI-SAS2X36.5003048000e72b3f/<SHELF7>:<FRONT>/' -e 's/LSI-SAS2X36.5003048000fd723f/<SHELF7>:<BACK>/' -e 's/LSI-SAS2X36.5003048000e7283f/<SHELF8>:<FRONT>/' -e 's/LSI-SAS2X36.5003048000fd733f/<SHELF8>:<BACK>/' -e 's/<ATA.*>/<SATA>/' -e 's/^.*:c/[EOR][BOR]c/' > AllDiskInfo.txt
+#
+cat AllDiskInfo.txt | sed -e 's/^.*:c/[BOR]c/' -e '/configured.*/d' -e 's/,0:.*:/:/' | awk 'BEGIN {RS = "[EOR]"; FS=":" } { print $1,$2,$4,$5,$7,$8,$9 }' | sed -e 's/BOR]//' -e '/^$/d' > storage.dat

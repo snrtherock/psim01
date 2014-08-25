@@ -1,0 +1,99 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2014.04.28 12:34:17 =~=~=~=~=~=~=~=~=~=~=~=
+conf t
+]0;VideoSwitch1(config)#VideoSwitch1(config)#int e
+VideoSwitch1(config)#int ethernet 49/1, 50, /1, 51/1 52/1     , 52/1
+]0;VideoSwitch1(config-if-Et49/1,50/1,51/1,52/1)#VideoSwitch1(config-if-Et49/1,50/1,51/1,52/1)#spo  e peed forced 40g full     full
+! Warning: Transceiver for interface Et51/1 is not present.  Cannot verify compatibility of speed and duplex settings.
+! Warning: Transceiver for interface Et52/1 is not present.  Cannot verify compatibility of speed and duplex settings.
+]0;VideoSwitch1(config-if-Et49/1,50/1,51/1,52/1)#VideoSwitch1(config-if-Et49/1,50/1,51/1,52/1)#y
+% Invalid input
+]0;VideoSwitch1(config-if-Et49/1,50/1,51/1,52/1)#VideoSwitch1(config-if-Et49/1,50/1,51/1,52/1)#[KVideoSwitch1(config-if-Et49/1,50/1,51/1,52/1)#end
+]0;VideoSwitch1#VideoSwitch1#write mem
+]0;VideoSwitch1#VideoSwitch1#conf t
+]0;VideoSwitch1(config)#VideoSwitch1(config)#vlan 4089
+]0;VideoSwitch1(config-vlan-4089)#VideoSwitch1(config-vlan-4089)#name MLAG_) Peerig ing    ing
+]0;VideoSwitch1(config-vlan-4089)#VideoSwitch1(config-vlan-4089)#trunk group mlagpeer
+]0;VideoSwitch1(config-vlan-4089)#VideoSwitch1(config-vlan-4089)#end
+]0;VideoSwitch1#VideoSwitch1#write mem
+]0;VideoSwitch1#VideoSwitch1#conf t
+]0;VideoSwitch1(config)#VideoSwitch1(config)#inte
+VideoSwitch1(config)#interface eth491/  /1,eth50/1
+]0;VideoSwitch1(config-if-Et49/1,50/1)#VideoSwitch1(config-if-Et49/1,50/1)#channel-
+VideoSwitch1(config-if-Et49/1,50/1)#channel-group 10 mode actigv  ve
+]0;VideoSwitch1(config-if-Et49/1,50/1)#VideoSwitch1(config-if-Et49/1,50/1)#end write me
+% Invalid input
+]0;VideoSwitch1(config-if-Et49/1,50/1)#VideoSwitch1(config-if-Et49/1,50/1)#end
+]0;VideoSwitch1#VideoSwitch1#write mem
+]0;VideoSwitch1#VideoSwitch1#conf t
+]0;VideoSwitch1(config)#VideoSwitch1(config)#int
+VideoSwitch1(config)#interface po
+VideoSwitch1(config)#interface port-Channel 10
+]0;VideoSwitch1(config-if-Po10)#VideoSwitch1(config-if-Po10)#description MLAG_Peer
+]0;VideoSwitch1(config-if-Po10)#VideoSwitch1(config-if-Po10)#switc
+VideoSwitch1(config-if-Po10)#switchport mode trunk
+]0;VideoSwitch1(config-if-Po10)#VideoSwitch1(config-if-Po10)#switchport trunk ggr  roup mlagpeer
+]0;VideoSwitch1(config-if-Po10)#VideoSwitch1(config-if-Po10)#end
+]0;VideoSwitch1#VideoSwitch1#write mem
+]0;VideoSwitch1#VideoSwitch1#conf t
+]0;VideoSwitch1(config)#VideoSwitch1(config)#vlan 4089
+]0;VideoSwitch1(config-vlan-4089)#VideoSwitch1(config-vlan-4089)#inter
+VideoSwitch1(config-vlan-4089)#interface vlan 4089
+]0;VideoSwitch1(config-if-Vl4089)#VideoSwitch1(config-if-Vl4089)#ipo addre        ad
+VideoSwitch1(config-if-Vl4089)#ip address 10.0.0.2/30
+]0;VideoSwitch1(config-if-Vl4089)#VideoSwitch1(config-if-Vl4089)#no autot state
+]0;VideoSwitch1(config-if-Vl4089)#VideoSwitch1(config-if-Vl4089)#exit
+]0;VideoSwitch1(config)#VideoSwitch1(config)#no spa
+VideoSwitch1(config)#no spanning-tree vlan 4089
+]0;VideoSwitch1(config)#VideoSwitch1(config)#end
+]0;VideoSwitch1#VideoSwitch1#write mem
+]0;VideoSwitch1#VideoSwitch1#conf t
+]0;VideoSwitch1(config)#VideoSwitch1(config)#mal
+VideoSwitch1(config)#mal  l
+VideoSwitch1(config)#mlag con
+VideoSwitch1(config)#mlag configuration 
+]0;VideoSwitch1(config-mlag)#VideoSwitch1(config-mlag)#loc
+VideoSwitch1(config-mlag)#local-interface vlan4089
+]0;VideoSwitch1(config-mlag)#VideoSwitch1(config-mlag)#p
+VideoSwitch1(config-mlag)#peer-ad
+VideoSwitch1(config-mlag)#peer-address 10.0.0.1
+]0;VideoSwitch1(config-mlag)#VideoSwitch1(config-mlag)#doma
+VideoSwitch1(config-mlag)#domain-id mlagDomain
+]0;VideoSwitch1(config-mlag)#VideoSwitch1(config-mlag)#pe
+VideoSwitch1(config-mlag)#peer-lo i
+VideoSwitch1(config-mlag)#peer-link p
+VideoSwitch1(config-mlag)#peer-link port-Channel 10
+]0;VideoSwitch1(config-mlag)#VideoSwitch1(config-mlag)#end
+]0;VideoSwitch1#VideoSwitch1#write mem
+]0;VideoSwitch1#VideoSwitch1#show mmml   l
+VideoSwitch1#show mlag 
+[?1h=MLAG Configuration:
+domain-id         :         mlagDomain
+local-interface   :           Vlan4089
+peer-address      :           10.0.0.1
+peer-link         :     Port-Channel10
+
+MLAG Status:
+state             :           Inactive
+peer-link status  :                 Up
+local-int status  :                 Up
+system-id         :  00:00:00:00:00:00
+
+MLAG Ports:
+Disabled          :   0
+Configured        :   0
+Inactive          :   0
+Active-partial    :   0
+Active-full       :   0
+[K[?1l>]0;VideoSwitch1#VideoSwitch1#conf t
+]0;VideoSwitch1(config)#VideoSwitch1(config)#int
+VideoSwitch1(config)#interface eth
+VideoSwitch1(config)#interface ethernet 1048   -1 48
+]0;VideoSwitch1(config-if-Et1-48)#VideoSwitch1(config-if-Et1-48)#flo
+VideoSwitch1(config-if-Et1-48)#flowcontrol sen
+VideoSwitch1(config-if-Et1-48)#flowcontrol send on
+]0;VideoSwitch1(config-if-Et1-48)#VideoSwitch1(config-if-Et1-48)#flo
+VideoSwitch1(config-if-Et1-48)#flowcontrol re
+VideoSwitch1(config-if-Et1-48)#flowcontrol receive on
+]0;VideoSwitch1(config-if-Et1-48)#VideoSwitch1(config-if-Et1-48)#end
+]0;VideoSwitch1#VideoSwitch1#write mem
+]0;VideoSwitch1#VideoSwitch1#exit

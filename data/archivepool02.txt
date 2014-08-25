@@ -1,0 +1,5 @@
+#i/bin/bash -e
+#
+# Script for creating standard archive vdev
+##########################################
+zpool create archivepool02 raidz2 c0t5000C50057AE30FFd0 c0t5000C50057BC696Fd0 c0t5000C50057B0474Fd0 c0t5000C50057B044F7d0 c0t5000C50057B03FF7d0 c0t5000C50057AE4617d0 c0t5000C50057B0956Fd0 c0t5000C50057B05647d0

@@ -1,0 +1,16 @@
+#!/bin/bash -e
+# script to create iSCSI volume
+###############################################################################
+set -e # exit on command errors (so you MUST handle exit codes properly!)
+zfs create -V 8tb ArchivePool01/ArchiveVol1
+echo "ArchiveVol1 volume created"
+stmfadm create-lu /dev/zvol/rdsk/ArchivePool01/ArchiveVol1
+echo "LU created"
+
+
+
+
+
+
+
+    

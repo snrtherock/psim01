@@ -1,0 +1,95 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2014.04.28 12:33:53 =~=~=~=~=~=~=~=~=~=~=~=
+intNetArista1(config)#interface eNetArista1(config)#interface ethernet 48/1, 49/1, 50/1, 51/1[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K49/12[K/[K, 50/1, 51/1, 52/1
+]0;NetArista1(config-if-Et49/1,50/1,51/1,52/1)#NetArista1(config-if-Et49/1,50/1,51/1,52/1)#speed forced 4gfu[K[K[K0gfull
+! 
+                        WARNING!
+Changing the speed setting from 10G to 40G on this port 
+will cause all the interfaces on the switch to flap.
+
+Do you wish to proceed with this command? [y/N] 
+! Transceiver for interface Et51/1 is not present. Cannot verify compatibility of speed and duplex settings.
+! Transceiver for interface Et52/1 is not present. Cannot verify compatibility of speed and duplex settings.
+]0;NetArista1(config-if-Et49/1,50/1,51/1,52/1)#NetArista1(config-if-Et49/1,50/1,51/1,52/1)#end
+]0;NetArista1#NetArista1#wrti[K[Kite mem
+Copy completed successfully.
+]0;NetArista1#NetArista1#conf [K[K[K[Kconf tNetArista1#conf terminal 
+]0;NetArista1(config)#NetArista1(config)#vlan 4098[K[K89
+]0;NetArista1(config-vlan-4089)#NetArista1(config-vlan-4089)#name MLAG_Peering
+]0;NetArista1(config-vlan-4089)#NetArista1(config-vlan-4089)#trunk group mlagpeer
+]0;NetArista1(config-vlan-4089)#NetArista1(config-vlan-4089)#end
+]0;NetArista1#NetArista1#write mem
+Copy completed successfully.
+]0;NetArista1#NetArista1#en
+]0;NetArista1#NetArista1#conf t
+]0;NetArista1(config)#NetArista1(config)#intqNetArista1(config)#intq[KNetArista1(config)#interface  eth49/1,eth5012[K[K[K0/1
+]0;NetArista1(config-if-Et49/1,50/1)#NetArista1(config-if-Et49/1,50/1)#channnge[K[K[Kel group 10 mode active
+% Invalid input
+]0;NetArista1(config-if-Et49/1,50/1)#NetArista1(config-if-Et49/1,50/1)#chaNetArista1(config-if-Et49/1,50/1)#channel-group 10 mode active
+]0;NetArista1(config-if-Et49/1,50/1)#NetArista1(config-if-Et49/1,50/1)#end
+]0;NetArista1#NetArista1#write mem
+Copy completed successfully.
+]0;NetArista1#NetArista1#conf t
+]0;NetArista1(config)#NetArista1(config)#intNetArista1(config)#interface poNetArista1(config)#interface port-Channel 1NetArista1(config)#interface port-Channel 10
+]0;NetArista1(config-if-Po10)#NetArista1(config-if-Po10)#descirpt[K[K[K[Kription MLAG_Peer
+]0;NetArista1(config-if-Po10)#NetArista1(config-if-Po10)#switchport mode trunk
+]0;NetArista1(config-if-Po10)#NetArista1(config-if-Po10)#switchport trun grou[K[K[K[Kk gt[Kroup mlagpeer
+]0;NetArista1(config-if-Po10)#NetArista1(config-if-Po10)#end
+]0;NetArista1#NetArista1#write mem
+Copy completed successfully.
+]0;NetArista1#NetArista1#conf t
+]0;NetArista1(config)#NetArista1(config)#mlNetArista1(config)#mlag cNetArista1(config)#mlag configuration 
+]0;NetArista1(config-mlag)#NetArista1(config-mlag)#doaNetArista1(config-mlag)#doa[K[KomNetArista1(config-mlag)#domain-id mlag1
+]0;NetArista1(config-mlag)#NetArista1(config-mlag)#local-interfNetArista1(config-mlag)#local-interface l[Kvlan4089
+% Interface not configured
+]0;NetArista1(config-mlag)#NetArista1(config-mlag)#e[Kend
+]0;NetArista1#NetArista1#conf t
+]0;NetArista1(config)#NetArista1(config)#vlan 40-98[K[K[K98
+% Invalid input
+]0;NetArista1(config)#NetArista1(config)#vlanNetArista1(config)#vlan 4089
+]0;NetArista1(config-vlan-4089)#NetArista1(config-vlan-4089)#interface vlan 4089
+]0;NetArista1(config-if-Vl4089)#NetArista1(config-if-Vl4089)#ip address 10.0.0.1/30
+]0;NetArista1(config-if-Vl4089)#NetArista1(config-if-Vl4089)#no u[Kautostate
+]0;NetArista1(config-if-Vl4089)#NetArista1(config-if-Vl4089)#end
+]0;NetArista1#NetArista1#conf i[Kt
+]0;NetArista1(config)#NetArista1(config)#no spanning-tree vlan 3[K4089
+]0;NetArista1(config)#NetArista1(config)#end
+]0;NetArista1#NetArista1#write mem
+Copy completed successfully.
+]0;NetArista1#NetArista1#conf t
+]0;NetArista1(config)#NetArista1(config)#mlaNetArista1(config)#mlag conNetArista1(config)#mlag configuration 
+]0;NetArista1(config-mlag)#NetArista1(config-mlag)#local-NetArista1(config-mlag)#local-interface vlan4089
+]0;NetArista1(config-mlag)#NetArista1(config-mlag)#peer-NetArista1(config-mlag)#peer-aNetArista1(config-mlag)#peer-address 10.0.0.2
+]0;NetArista1(config-mlag)#NetArista1(config-mlag)#domNetArista1(config-mlag)#domain-id mlagD0o[K[Komain
+]0;NetArista1(config-mlag)#NetArista1(config-mlag)#peer-=[KlNetArista1(config-mlag)#peer-link porNetArista1(config-mlag)#peer-link port-Channel 10
+]0;NetArista1(config-mlag)#NetArista1(config-mlag)#end
+]0;NetArista1#NetArista1#wriem[K[K[Kite mem
+Copy completed successfully.
+]0;NetArista1#NetArista1#show [K[K[K[KshowNetArista1#show mlNetArista1#show mlag 
+[?1h=MLAG Configuration:
+domain-id           :          mlagDomain
+local-interface     :            Vlan4089
+peer-address        :            10.0.0.2
+peer-link           :      Port-Channel10
+                                         
+MLAG Status:       
+state               :            Inactive
+negotiation status  :          Connecting
+peer-link status    :                  Up
+local-int status    :                  Up
+system-id           :   00:00:00:00:00:00
+                                         
+MLAG Ports:        
+Disabled            :                   0
+Configured          :                   0
+Inactive            :                   0
+Active-partial      :                   0
+Active-full         :                   0
+
+[K[?1l>]0;NetArista1#NetArista1#conf t
+]0;NetArista1(config)#NetArista1(config)#int eNetArista1(config)#int ethernet 1-48
+]0;NetArista1(config-if-Et1-48)#NetArista1(config-if-Et1-48)#flowNetArista1(config-if-Et1-48)#flowcontrol co[K[KsNetArista1(config-if-Et1-48)#flowcontrol send on
+]0;NetArista1(config-if-Et1-48)#NetArista1(config-if-Et1-48)#floNetArista1(config-if-Et1-48)#flowcontrol recNetArista1(config-if-Et1-48)#flowcontrol receive on
+]0;NetArista1(config-if-Et1-48)#NetArista1(config-if-Et1-48)#end
+]0;NetArista1#NetArista1#wrti[K[Kite mem
+Copy completed successfully.
+]0;NetArista1#NetArista1#exit

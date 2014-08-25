@@ -1,0 +1,14 @@
+#!/bin/bash -e
+# script to create ZPool
+###############################################################################
+set -e # exit on command errors (so you MUST handle exit codes properly!)
+
+zpool create ArchivePool01 RAIDZ2 c0t5000C50057B0C13Fd0 c0t5000C50057B03F63d0 c0t5000C50057B086EBd0 c0t5000C50057B092F7d0 c0t5000C50057AE68B3d0 c0t5000C50057B03F37d0 c0t5000C50057B0464Fd0 c0t5000C50057B056DFd0
+echo "Zpool created"
+
+
+
+
+
+
+    

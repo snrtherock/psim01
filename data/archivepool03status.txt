@@ -1,0 +1,117 @@
+  pool: archivepool03
+ state: DEGRADED
+status: One or more devices are unavailable in response to persistent errors.
+	Sufficient replicas exist for the pool to continue functioning in a
+	degraded state.
+action: Determine if the device needs to be replaced, and clear the errors
+	using 'zpool clear' or 'fmadm repaired', or replace the device
+	with 'zpool replace'.
+  scan: scrub repaired 0 in 0h34m with 0 errors on Mon Jun 23 16:01:39 2014
+config:
+
+	NAME                       STATE     READ WRITE CKSUM
+	archivepool03              DEGRADED     0     0     0
+	  raidz2-0                 ONLINE       0     0     0
+	    c0t5000C50057B059AFd0  ONLINE       0     0     0
+	    c0t5000C50057B05A67d0  ONLINE       0     0     0
+	    c0t5000C50057B04503d0  ONLINE       0     0     0
+	    c0t5000C50057B055AFd0  ONLINE       0     0     0
+	    c0t5000C50057B054CFd0  ONLINE       0     0     0
+	    c0t5000C50057B044F7d0  ONLINE       0     0     0
+	    c0t5000C50057AE5353d0  ONLINE       0     0     0
+	    c0t5000C50057B05647d0  ONLINE       0     0     0
+	  raidz2-1                 ONLINE       0     0     0
+	    c0t5000C50057B08F63d0  ONLINE       0     0     0
+	    c0t5000C50057B05DDFd0  ONLINE       0     0     0
+	    c0t5000C50057B056DFd0  ONLINE       0     0     0
+	    c0t5000C50057B0464Fd0  ONLINE       0     0     0
+	    c0t5000C50057B0474Fd0  ONLINE       0     0     0
+	    c0t5000C50057B04847d0  ONLINE       0     0     0
+	    c0t5000C50057B0956Fd0  ONLINE       0     0     0
+	    c0t5000C50057AFC927d0  ONLINE       0     0     0
+	  raidz2-2                 ONLINE       0     0     0
+	    c0t5000C50057B04817d0  ONLINE       0     0     0
+	    c0t5000C50057B05577d0  ONLINE       0     0     0
+	    c0t5000C50057B03F37d0  ONLINE       0     0     0
+	    c0t5000C50057AE68B3d0  ONLINE       0     0     0
+	    c0t5000C50057B056B7d0  ONLINE       0     0     0
+	    c0t5000C50057B0C13Fd0  ONLINE       0     0     0
+	    c0t5000C50057AE692Fd0  ONLINE       0     0     0
+	    c0t5000C50057AE1C0Fd0  ONLINE       0     0     0
+	  raidz2-3                 ONLINE       0     0     0
+	    c0t5000C50057AE52FFd0  ONLINE       0     0     0
+	    c0t5000C50057B052C3d0  ONLINE       0     0     0
+	    c0t5000C50057AFAC8Fd0  ONLINE       0     0     0
+	    c0t5000C50057B06823d0  ONLINE       0     0     0
+	    c0t5000C50057B0426Fd0  ONLINE       0     0     0
+	    c0t5000C50057B039CBd0  ONLINE       0     0     0
+	    c0t5000C50057B055B7d0  ONLINE       0     0     0
+	    c0t5000C50057B04697d0  ONLINE       0     0     0
+	  raidz2-4                 DEGRADED     0     0     0
+	    c0t5000C50057B0959Bd0  ONLINE       0     0     0
+	    c0t5000C50057AFC7DFd0  ONLINE       0     0     0
+	    c0t5000C50057B052FFd0  UNAVAIL      0     0     0
+	    c0t5000C50057B09457d0  UNAVAIL      0     0     0
+	    c0t5000C50057B05687d0  ONLINE       0     0     0
+	    c0t5000C50057B04617d0  ONLINE       0     0     0
+	    c0t5000C50057B046D7d0  ONLINE       0     0     0
+	    c0t5000C50057B0537Fd0  ONLINE       0     0     0
+	  raidz2-5                 DEGRADED     0     0     0
+	    c0t5000C50057B08603d0  ONLINE       0     0     0
+	    c0t5000C50057B03F2Bd0  ONLINE       0     0     0
+	    c0t5000C50057AE558Fd0  UNAVAIL      0     0     0
+	    c0t5000C50057B088F3d0  ONLINE       0     0     0
+	    c0t5000C50057B08927d0  ONLINE       0     0     0
+	    c0t5000C50057B05097d0  ONLINE       0     0     0
+	    c0t5000C50057AE6AE3d0  ONLINE       0     0     0
+	    c0t5000C50057B0953Bd0  ONLINE       0     0     0
+	  raidz2-6                 ONLINE       0     0     0
+	    c0t5000C50057B059B7d0  ONLINE       0     0     0
+	    c0t5000C50057AE5377d0  ONLINE       0     0     0
+	    c0t5000C50057B08F8Bd0  ONLINE       0     0     0
+	    c0t5000C50057B03C87d0  ONLINE       0     0     0
+	    c0t5000C50057B047E7d0  ONLINE       0     0     0
+	    c0t5000C50057B048AFd0  ONLINE       0     0     0
+	    c0t5000C50057AE2B03d0  ONLINE       0     0     0
+	    c0t5000C50057B0491Fd0  ONLINE       0     0     0
+	  raidz2-7                 ONLINE       0     0     0
+	    c0t5000C50057B052AFd0  ONLINE       0     0     0
+	    c0t5000C50057AE3B8Fd0  ONLINE       0     0     0
+	    c0t5000C50057AFFADFd0  ONLINE       0     0     0
+	    c0t5000C50057B05FABd0  ONLINE       0     0     0
+	    c0t5000C50057B03D77d0  ONLINE       0     0     0
+	    c0t5000C50057B0371Fd0  ONLINE       0     0     0
+	    c0t5000C50057B03E4Fd0  ONLINE       0     0     0
+	    c0t5000C50057B0525Bd0  ONLINE       0     0     0
+	  raidz2-8                 ONLINE       0     0     0
+	    c0t5000C50057B06827d0  ONLINE       0     0     0
+	    c0t5000C50057B05273d0  ONLINE       0     0     0
+	    c0t5000C50057AC248Bd0  ONLINE       0     0     0
+	    c0t5000C50057AFF2F7d0  ONLINE       0     0     0
+	    c0t5000C50057B08617d0  ONLINE       0     0     0
+	    c0t5000C50057AE6433d0  ONLINE       0     0     0
+	    c0t5000C50057B056CFd0  ONLINE       0     0     0
+	    c0t5000C50057B090B3d0  ONLINE       0     0     0
+
+device details:
+
+	c0t5000C50057B052FFd0    UNAVAIL 	  too many errors
+	status: FMA has faulted this device.
+	action: Run 'fmadm faulty' for more information. Clear the errors
+		using 'fmadm repaired'.
+	   see: http://support.oracle.com/msg/ZFS-8000-NX for recovery
+
+	c0t5000C50057B09457d0    UNAVAIL 	  external device fault
+	status: FMA has faulted this device.
+	action: Run 'fmadm faulty' for more information. Clear the errors
+		using 'fmadm repaired'.
+	   see: http://support.oracle.com/msg/DISK-8000-12 for recovery
+
+	c0t5000C50057AE558Fd0    UNAVAIL 	  external device fault
+	status: FMA has faulted this device.
+	action: Run 'fmadm faulty' for more information. Clear the errors
+		using 'fmadm repaired'.
+	   see: http://support.oracle.com/msg/DISK-8000-12 for recovery
+
+
+errors: No known data errors
