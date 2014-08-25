@@ -1,7 +1,11 @@
-# Agent.py class
-# Author:  Christopher Upkes
-# property of Stratatron, LLC
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Aug 25 11:08:09 2014
+@description:  Base OS Agent class
+@author: christopherupkes
+@owner: Stratatron,LLC
 
+"""
 
 import configfilepointer
 import configurationmanager
@@ -14,16 +18,18 @@ import shutil
 # basic os agent class
 class Agent:
     def __init__(self, agentName, configfilepointer, start=False) :
-        self.name = agentName
+        self._name = agentName
         self.configManager = configurationmanager.ConfigurationManager(configfilepointer)
         self.start = start
         self.initEnvironment()
 
-    def getName(self) :
-        return self.name
-
-    def setName(self, name) :
-        self.name = name
+    @property
+    def name(self) :
+        return self._name
+        
+    @name.setter
+    def name(self, value) :
+        self._name = value
 
     def updateInitFile(self,configfilepoiner) :
         self.configManager.updateConfig(configfilepointer)
@@ -32,36 +38,13 @@ class Agent:
         # start and initialize agent
         reportFile = open(self.reportFile, 'w')
         todayNow = datetime.datetime.now()
-        reportFile.write('Agent Test Report ' + todayNow.strftime('%Y-%m-%d %H:%M'))
-        reportFile.write('\nInitiating file copy ...\n')
-        timeStart = datetime.datetime.now()
-        shutil.copy2(self.copyFile, self.destFile)
-        timeStop = datetime.datetime.now()
-        copyDuration = timeStop - timeStart
-        fileSizeInBytes = os.path.getsize(self.copyFile)
-        fileSize = fileSizeInBytes / 1048576
-        copySpeed = fileSize / copyDuration.seconds
-        reportFile.write('File copy started @ ' + str(timeStart) + ' \n')
-        reportFile.write('File copy completed @ ' + str(timeStop) + ' \n')
-        reportFile.write('Test duration was ' + str(copyDuration.seconds) + ' seconds ')
-        reportFile.write('and ' + str(copyDuration.microseconds) + ' microseconds\n')
-        reportFile.write('Copy throughput was ' + str(copySpeed) + ' MBs per second\n')
+        reportFile.write('Agent Init Test Report ' + todayNow.strftime('%Y-%m-%d %H:%M'))
         reportFile.close()
 
     def initEnvironment(self) :
-        self.platform = sys.platform
-        self.copyFile = self.configManager.getSectionParameter('filecopyparams','copyfile')
-        self.destFile = self.configManager.getSectionParameter('filecopyparams','destfile')
-        self.reportFile = self.configManager.getSectionParameter('reportparams','reportfile')
-            
+        self.platform = sys.platform                 
         
 
     def stopAgent(self) :
         # stop agent  Needs to be implemented
         None
-
-
-    
-        
-
-    
