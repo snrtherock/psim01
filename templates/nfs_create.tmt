@@ -1,0 +1,14 @@
+#!/bin/bash -e
+#
+# Script for creating $node1_pool1/$nfs1
+##################################################
+logger -p local5.debug creating $nfs1
+# check for existence of pool and any conflicting dataset
+#hostpool = $(zpool list $1 | grep $1 | awk ' { print $1 }'
+#pool = ${hostpool:?"$node1_pool1 $1 not found"}
+zfs create $node1_pool1/$nfs1
+echo "dataset $nfs1 created"
+zfs set share.nfs=on $node1_pool1/$nfs1
+echo "dataset $nfs1 shared"
+chmod 777 $node1_pool1/$nfs1
+# test value from showmount -e for completion
