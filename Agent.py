@@ -19,8 +19,10 @@ import shutil
 class Agent:
     def __init__(self, agentName, configfilepointer, fileType='config', start=False) :
         self._name = agentName
-        self.configManager = configurationmanager.ConfigurationManager(configfilepointer) if fileType == 'config' else None
-        self.start = start
+        if fileType == 'config' :
+            self.configManager = configurationmanager.ConfigurationManager(configfilepointer) 
+        else :
+            self.configManager = None
         self.initEnvironment()
         self.reportFile = 'AgentReport.txt'
 

@@ -9,10 +9,10 @@ Created on Mon Aug 25 10:57:49 2014
 from Agent import Agent
 
 class SystemDataCollector( Agent ):
-    def __init__(self, agentName, configfilepointer, start=False):
+    def __init__(self, agentName, configfilepointer, fileType='report', start=False):
         self._diskDataReport = None
         
-        Agent.__init__(self, agentName, configfilepointer, start)
+        Agent.__init__(self, agentName, configfilepointer, fileType, start)
         self._records = []
         self._record = []
         
