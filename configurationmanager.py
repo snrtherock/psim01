@@ -3,14 +3,14 @@
 # property of Stratatron, LLC
 
 # manager class for parsing config file values
-import configparser
+import ConfigParser
 from configfilepointer import ConfigFilePointer
 
 # initialize the manager class by passing a pointer to a confguration file.
 class ConfigurationManager :
     def __init__(self, cfpointer) :
         self.configFile = cfpointer
-        self.config = configparser.ConfigParser()
+        self.config = ConfigParser.ConfigParser()
         self.config.read(cfpointer.fileName)         
 
     def validateConfigFiles(self) :

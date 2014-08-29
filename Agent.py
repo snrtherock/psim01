@@ -17,11 +17,12 @@ import shutil
 
 # basic os agent class
 class Agent:
-    def __init__(self, agentName, configfilepointer, start=False) :
+    def __init__(self, agentName, configfilepointer, fileType='config', start=False) :
         self._name = agentName
-        self.configManager = configurationmanager.ConfigurationManager(configfilepointer)
+        self.configManager = configurationmanager.ConfigurationManager(configfilepointer) if fileType == 'config' else None
         self.start = start
         self.initEnvironment()
+        self.reportFile = 'AgentReport.txt'
 
     @property
     def name(self) :
@@ -48,3 +49,13 @@ class Agent:
     def stopAgent(self) :
         # stop agent  Needs to be implemented
         None
+        
+    def fileScanner(self, counter, fileName, function):
+        file = open(fileName, 'r')
+        while True:
+            line = file.readline()
+            if not line: break
+            function(counter, line)
+            counter =  counter + 1
+            if counter > 5: break
+        file.close()

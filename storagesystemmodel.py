@@ -97,12 +97,14 @@ class NodeInterfaceList( object ) :
 #  JbodNode model class
 #==============================================================================
 
-class jbodNode :
-    def _init_( self, wwn, capacity, mfgr, nodeType ) :
+class JbodNode :
+    def _init_( self, wwn, nodeType, capacity=None, mfgr=None, shelf=None, slot=None) :
         self._wwn = wwn
         self._capacty = capacity
         self._mfgr = mfgr
         self._nodeType = nodeType
+        self._shelf = shelf
+        self._slot = slot
 
     @property
     def nodeId( self ) :
@@ -110,6 +112,9 @@ class jbodNode :
 
     @property
     def capacity( self ) :
+        if self.nodeType == 'SSD' :
+            self._capacity = 200
+        else: self._capacity = 300000
         return self._capacity
 
     @property
@@ -119,6 +124,22 @@ class jbodNode :
     @property
     def nodeType( self ) :
         return self._nodeType
+    
+    @property
+    def shelf( self ) :
+        return self._shelf
+        
+    @shelf.setter
+    def shelf( self, value ) :
+        self._shelf = value
+    
+    @property
+    def slot( self ) :
+        return self._slot
+        
+    @slot.setter
+    def slot( self, value ) :
+        self._slot = value
         
 #==============================================================================
 # jbodNode collection wrapper class
