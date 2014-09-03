@@ -109,7 +109,7 @@ class JbodNode :
     @property
     def nodeId( self ) :
         return self._wwn
-
+# default property value needs to be dynamically assigned
     @property
     def capacity( self ) :
         if self.nodeType == 'SSD' :
