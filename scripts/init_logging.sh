@@ -20,7 +20,7 @@ svcadm refresh system/system-log
 sleep 10
 logger -p local5.debug stratatron
 LOG =g$(grep stratatron /var/log/strata_logs/init.log/strata_logs)
-LOGENTRY=${LOG:?"Expected log entry missing."}
+LOGENTRY=${$LOG:?"Expected log entry missing."}
 LOGVALUE=$(awk '{print $10} $LOGENTRY')
 if [ $LOGVALUE == "stratatron" ]
 then
